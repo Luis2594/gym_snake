@@ -1,6 +1,6 @@
 <?php
 
-include '../data/ClientData.php';
+include_once __DIR__. '/../data/ClientData.php';
 
 /**
  * Description of ClientBusiness
@@ -41,6 +41,15 @@ class ClientBusiness {
     public function deleteClient($id) {
         return $this->clientData->deleteClient($id);
     }
+
+       /**
+     * Use to get all people
+     * @return array
+     */
+    public function getClientAll() {
+        return $this->clientData->getClientAll();
+    }
+
 
     /**
      * Use to get all people

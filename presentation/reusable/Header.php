@@ -43,6 +43,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="./../resource/js/alertify.js"></script>
     <script src="./../resource/js/alertify.min.js"></script>
+
+    <!-- <link href="./../resource/css/table_search/css/addons/datatables.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+
+    <!-- <script type="text/javascript" src="./../resource/css/table_search/js/addons/datatables.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+
     <style>
         .w3-sidenav a {font-family: "Roboto", sans-serif}
         body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
@@ -53,16 +60,16 @@
         <nav class="w3-sidenav w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidenav">
             <div class="w3-container w3-padding-16">
                 <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-closebtn w3-hover-text-red"></i>
-                <h3 class="w3-wide"><img src="./../resource/images/app/logo.jpg" width="100" height="100"></img></h3>
+                <h3 class="w3-wide"><img src="./../resource/images/app/logo.jpg" width="100" height="100"/></h3>
             </div>
             <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
                 <a href="./Home.php">Inicio</a>
                 <?php
-                error_reporting(0);
-                session_start();
+error_reporting(0);
+session_start();
 
-                if (isset($_SESSION['id'])) {
-                    ?>
+if (isset($_SESSION['id'])) {
+    ?>
                     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-text-black" id="myBtn">
                         Registro <i class="fa fa-caret-down"></i>
                     </a>
@@ -74,10 +81,10 @@
                     <a href="./Defaulters.php">Morosos</a>
                     <a href="./ShowDetailsGym.php">Detalles</a>
                     <a href="./../business/LogoutAction.php">Salir</a>
-                <?php } else { ?>
+                <?php } else {?>
                     <a href="./Login.php">Iniciar sesión</a>
                 <?php }
-                ?>
+?>
                     <a href="./About.php">Acerca de</a>
             </div>
         </nav>

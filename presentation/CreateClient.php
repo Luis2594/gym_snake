@@ -11,7 +11,6 @@ include './reusable/Header.php';
         <!--FORM-->
         <div class="w3-col s4">
             <h4>Crear cliente</h4>
-
             <form action="../business/CreateClientAction.php" method="POST" enctype="multipart/form-data">
                 <input type="file" id="file" name="file" accept=".png, .jpg">
                 <p><input id="dni" class="w3-input w3-border" type="number"  placeholder="Cédula con formato de 9 digitos" name="dni" required></p>

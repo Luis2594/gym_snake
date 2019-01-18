@@ -5,8 +5,8 @@ if (!isset($_SESSION['id'])) {
     header("location: ./Login.php");
 }
 
-include './reusable/Header.php';
-include '../business/ClientBusiness.php';
+include_once __DIR__. '/./reusable/Header.php';
+include_once __DIR__. '/../business/ClientBusiness.php';
 
 $clientBusiness = new ClientBusiness();
 $clients = array();
@@ -18,6 +18,7 @@ if (isset($_GET['dni'])) {
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $clients = $clientBusiness->getClientId($id);
+    
 }
 ?>
 
@@ -59,7 +60,7 @@ if (isset($_GET['id'])) {
 </div>
 
 <?php
-include './reusable/Footer.php';
+include_once __DIR__. '/./reusable/Footer.php';
 ?>
 
 <script type="text/javascript">

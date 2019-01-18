@@ -1,7 +1,7 @@
 <?php
 
-require_once '../data/Connector.php';
-include '../domain/Client.php';
+require_once __DIR__. '/../data/Connector.php';
+include_once __DIR__. '/../domain/Client.php';
 
 /**
  * Description of ClientData
@@ -61,6 +61,32 @@ class ClientData extends Connector {
         } else {
             return FALSE;
         }
+    }
+
+     /**
+     * Use to get all people
+     * @return array
+     */
+    public function getClientAll() {
+
+        $query = "call getClientAll()";
+
+        $allClients = $this->exeQuery($query);
+        $array = [];
+        if (mysqli_num_rows($allClients) > 0) {
+            while ($row = mysqli_fetch_array($allClients)) {
+                $array[] = array("id" => $row['id'],
+                        "dni" => $row['dni'],
+                        "name" => utf8_encode($row['name']),
+                        "firstname" => utf8_encode($row['firstname']),
+                        "secondname" => utf8_encode($row['secondname']),
+                        "phone" => $row['phone'],
+                        "dateregistration" => $row['dateregistration'],
+                        "datepayment" => $row['datepayment'],
+                        "image" => $row['image']);
+            }
+        }
+        return $array;
     }
 
     /**
