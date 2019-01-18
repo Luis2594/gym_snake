@@ -2,11 +2,13 @@
 
 require('../resource/fpdf/fpdf.php');
 include '../business/ClientBusiness.php';
+date_default_timezone_set('America/Costa_Rica') ;
 
 class PDF extends FPDF {
 
 // Cabecera de p�gina
     function Header() {
+        
         // Logo
         $this->Image('../resource/images/app/logo.png', 10, 10, 10);
         // Arial bold 15
