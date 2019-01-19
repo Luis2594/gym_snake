@@ -10,11 +10,7 @@ include '../domain/Client.php';
  */
 class ClientData extends Connector {
 
-    /**
-     * Used to insert a new person
-     * @param type $person
-     * @return type
-     */
+
     public function insertClient($client) {
 
         $query = "call insertclient('" . $client->getDni() . "',"
@@ -29,11 +25,6 @@ class ClientData extends Connector {
         return $this->exeQuery($query);
     }
 
-    /**
-     * Update person values
-     * @param type $person
-     * @return type
-     */
     public function updateClient($client) {
         $query = "call updateclient('" . $client->getId() . "',"
                 . "'" . $client->getDni() . "',"
@@ -48,11 +39,6 @@ class ClientData extends Connector {
         return $this->exeQuery($query);
     }
 
-    /**
-     * Delete a person by id
-     * @param type $id pk of the element to delete
-     * @return type
-     */
     public function deleteClient($id) {
         $query = 'call deleteclient("' . $id . '");';
 
@@ -63,10 +49,6 @@ class ClientData extends Connector {
         }
     }
 
-    /**
-     * Use to get all people
-     * @return array
-     */
     public function getClientName($name) {
 
         $query = "SELECT * FROM `tbclient` WHERE name LIKE CONCAT('" . $name . "','%')";
@@ -82,10 +64,6 @@ class ClientData extends Connector {
         return $array;
     }
 
-    /**
-     * Use to get all people
-     * @return array
-     */
     public function getClientsDni($dni) {
 
         $query = "call showclientdni(" . $dni . ");";
@@ -102,10 +80,6 @@ class ClientData extends Connector {
         return $array;
     }
 
-    /**
-     * Use to get all people
-     * @return array
-     */
     public function getClientId($id) {
 
         $query = "call getclientid(" . $id . ");";
@@ -121,10 +95,6 @@ class ClientData extends Connector {
         return $array;
     }
 
-    /**
-     * Use to get all people
-     * @return array
-     */
     public function getPhoneClient($array) {
 
         $phones = [];
@@ -140,10 +110,6 @@ class ClientData extends Connector {
         return $phones;
     }
 
-    /**
-     * Use to get all people
-     * @return array
-     */
     public function getClientsDefaulters() {
 
         $query = "call showclientdefaulters()";
@@ -153,7 +119,6 @@ class ClientData extends Connector {
         if (mysqli_num_rows($allClients) > 0) {
             while ($row = mysqli_fetch_array($allClients)) {
                 $currentClient = new Client($row['id'], $row['dni'], $row['name'], $row['firstname'], $row['secondname'], $row['phone'], $row['dateregistration'], $row['datepayment'], $row['image']);
-
                 array_push($array, $currentClient);
             }
         }

@@ -2,6 +2,7 @@
 
 require('../resource/fpdf/fpdf.php');
 include '../business/ClientBusiness.php';
+date_default_timezone_set('America/Costa_Rica') ;
 
 class PDF extends FPDF {
 

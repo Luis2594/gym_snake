@@ -31,7 +31,7 @@ $clientBusiness = new ClientBusiness();
     <div class="w3-row w3-grayscale">
         <?php
         foreach ($clients as $client) {
-            $date = new DateTime($client->getDatepayment());
+            $date = date("d-m-Y", strtotime($client->getDatepayment()));
             ?>
             <div class="w3-col l3 s6">
                 <div class="w3-container">
@@ -47,7 +47,7 @@ $clientBusiness = new ClientBusiness();
                             echo $name
                             ?></b><br>
                         <b>Tel: <?php echo $client->getPhone(); ?></b><br>
-                        <b>Día de pago: <?php echo $date->format("d-m-Y"); ?></b><br>
+                        <b>Día de pago: <?php echo $date ?></b><br>
                     </p>
                 </div>
             </div>
