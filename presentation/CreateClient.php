@@ -79,12 +79,7 @@ include './reusable/Footer.php';
         var phone = document.getElementById("phone");
         var date_registration = document.getElementById("startDate");
         var date_payment = document.getElementById("endDate");
-
-<<<<<<< HEAD
-//        verifyDni();
-
-=======
->>>>>>> 07337c00b6261064584020dd308e44d97688a964
+        
         if (dni.value.length !== 9) {
             alertify.error("FORMATO DE 9 CIFRAS PARA CEDULA");
             return false;
@@ -140,13 +135,6 @@ include './reusable/Footer.php';
         });
     }
 
-<<<<<<< HEAD
-    //alertify.success('Success message');
-    //alertify.error("j");
-
-
-=======
->>>>>>> 07337c00b6261064584020dd308e44d97688a964
     //Nos aseguramos que estén definidas
     //algunas funciones básicas
     window.URL = window.URL || window.webkitURL;
