@@ -150,7 +150,7 @@ include './reusable/Footer.php';
     function startCam() {
         $('#photo').hide();
         var video = document.getElementById('cam');
-
+        
         // Get access to the camera!
         if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now

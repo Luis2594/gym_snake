@@ -25,7 +25,7 @@ $clientBusiness = new ClientBusiness();
         <?php
         foreach ($clients as $client) {
             $cont = 1;
-            $date = new DateTime($client->getDatepayment());
+            $date = date("d-m-Y", strtotime($client->getDatepayment()));
             ?>
             <div class="w3-col l3 s6">
                 <div class="w3-container">
@@ -37,12 +37,17 @@ $clientBusiness = new ClientBusiness();
                         </div>
                     </div>
                     <p>
-                        <b><?php
+                        <b>
+                            <?php
                             $name = ucwords(strtolower($client->getName())) . " " . ucwords(strtolower($client->getFirstname()));
                             echo $name
-                            ?></b><br>
-                        <b>Tel: <?php echo $client->getPhone(); ?></b><br>
-                        <b>Día de pago: <?php echo $date->format("d-m-Y"); ?></b><br>
+                            ?>
+                        </b>
+                        <br>
+                        <b>Tel: <?php echo $client->getPhone(); ?></b>
+                        <br>
+                        <b>Día de pago: <?php echo $date ?></b>
+                        <br>
                     </p>
                 </div>
             </div>

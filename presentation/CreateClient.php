@@ -78,7 +78,7 @@ include './reusable/Footer.php';
         var phone = document.getElementById("phone");
         var date_registration = document.getElementById("startDate");
         var date_payment = document.getElementById("endDate");
-
+        
         if (dni.value.length !== 9) {
             alertify.error("FORMATO DE 9 CIFRAS PARA CEDULA");
             return false;
@@ -144,8 +144,9 @@ include './reusable/Footer.php';
     function startCam() {
         $('#photo').hide();
         $('#img').hide();
-        var video = document.getElementById('cam');
 
+        var video = document.getElementById('cam');
+        
         // Get access to the camera!
         if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
