@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
                     <p><input id="startDate" name="startDate" class="w3-input w3-border" type="date" placeholder="Fecha ingreso" required value="<?php echo $client->getDateregistration(); ?>"></p>
                     <p>Fecha de pago</p>
                     <p><input id="endDate" name="endDate" class="w3-input w3-border" type="date" placeholder="Fecha de pago" required value="<?php echo $client->getDatepayment(); ?>"></p>
-                    <button type="submit" class="w3-btn-block w3-padding w3-black" onclick="return setValueItems();">Actualizar</button>
+                    <button type="submit" class="w3-btn-block w3-padding w3-black" onclick="return verifyIamHector();">Actualizar</button>
                 </form>
             </div>
             <div class="w3-col s4" style="margin-top: 65px;">
@@ -91,6 +91,17 @@ include './reusable/Footer.php';
         alertify.error(msg);
     }
 
+    function verifyIamHector() {
+       let secret = prompt("Clave para poder actualizar", "");
+       console.log("secret: ", secret);
+       if (secret === "HMJM1286") {
+        return this.setValueItems();
+       } else {
+        alert("No estas autorizado");
+        return false;
+       }
+    }
+
     function setValueItems() {
         var dni = document.getElementById("dni");
         var name = document.getElementById("name");
@@ -99,8 +110,6 @@ include './reusable/Footer.php';
         var phone = document.getElementById("phone");
         var date_registration = document.getElementById("startDate");
         var date_payment = document.getElementById("endDate");
-
-//        verifyDni();
 
         if (dni.value.length !== 9) {
             alertify.error("FORMATO DE 9 CIFRAS PARA CEDULA");
